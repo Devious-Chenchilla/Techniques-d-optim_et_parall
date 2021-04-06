@@ -1,0 +1,490 @@
+
+;; Function saxpy (saxpy, funcdef_no=22, decl_uid=3423, cgraph_uid=23, symbol_order=22)
+
+saxpy (int * res, int * x, int * y, int a, int size)
+{
+  vector(4) int * vectp_res.32;
+  vector(4) int * vectp_res.31;
+  vector(4) int vect__64.30;
+  vector(4) int vect__62.29;
+  vector(4) int * vectp_y.28;
+  vector(4) int * vectp_y.27;
+  vector(4) int vect__60.26;
+  vector(4) int vect__59.25;
+  vector(4) int * vectp_x.24;
+  vector(4) int * vectp_x.23;
+  int tmp.22;
+  unsigned int niters_vector_mult_vf.21;
+  unsigned int bnd.20;
+  unsigned int niters.19;
+  vector(8) int * vectp_res.18;
+  vector(8) int * vectp_res.17;
+  vector(8) int vect__9.16;
+  vector(8) int vect__7.15;
+  vector(8) int * vectp_y.14;
+  vector(8) int * vectp_y.13;
+  vector(8) int vect__5.12;
+  vector(8) int vect__4.11;
+  vector(8) int * vectp_x.10;
+  vector(8) int * vectp_x.9;
+  int tmp.8;
+  unsigned int niters_vector_mult_vf.7;
+  unsigned int bnd.6;
+  unsigned int niters.5;
+  int i;
+  _Bool _10;
+  sizetype _11;
+  ssizetype _20;
+  int * _21;
+  _Bool _25;
+  unsigned int _26;
+  unsigned int _27;
+  int * _31;
+  ssizetype _32;
+  _Bool _33;
+  _Bool _34;
+  sizetype _35;
+  _Bool _36;
+  long unsigned int _41;
+  long unsigned int _42;
+  int * _43;
+  int _44;
+  int _45;
+  int * _46;
+  int _47;
+  int * _48;
+  int _49;
+  unsigned int _68;
+  unsigned int _69;
+  unsigned int _76;
+  unsigned int _77;
+  vector(8) int vect_cst__81;
+  unsigned int ivtmp_90;
+  unsigned int ivtmp_91;
+  unsigned int _94;
+  long unsigned int _97;
+  long unsigned int _98;
+  int * _99;
+  int _100;
+  int _101;
+  int * _102;
+  int _103;
+  int * _104;
+  int _105;
+  unsigned int _109;
+  unsigned int _110;
+  unsigned int _111;
+  int _117;
+  sizetype _120;
+  sizetype _121;
+  vector(4) int vect_cst__125;
+  sizetype _128;
+  sizetype _129;
+  sizetype _135;
+  sizetype _136;
+  unsigned int ivtmp_140;
+  unsigned int ivtmp_141;
+
+  <bb 2> [local count: 118111600]:
+  if (size_13(D) > 0)
+    goto <bb 11>; [89.00%]
+  else
+    goto <bb 4>; [11.00%]
+
+  <bb 11> [local count: 105119324]:
+  _27 = (unsigned int) size_13(D);
+  _26 = _27 + 4294967295;
+  _25 = _26 > 2;
+  _21 = x_14(D) + 4;
+  _20 = res_17(D) - _21;
+  _11 = (sizetype) _20;
+  _10 = _11 > 24;
+  _36 = _10 & _25;
+  _31 = y_16(D) + 4;
+  _32 = res_17(D) - _31;
+  _35 = (sizetype) _32;
+  _34 = _35 > 24;
+  _33 = _34 & _36;
+  if (_33 != 0)
+    goto <bb 12>; [80.00%]
+  else
+    goto <bb 13>; [20.00%]
+
+  <bb 12> [local count: 84095460]:
+  niters.5_53 = (unsigned int) size_13(D);
+  _68 = (unsigned int) size_13(D);
+  _69 = _68 + 4294967295;
+  if (_69 <= 6)
+    goto <bb 20>; [10.00%]
+  else
+    goto <bb 15>; [90.00%]
+
+  <bb 15> [local count: 75685914]:
+  bnd.6_72 = niters.5_53 >> 3;
+  vect_cst__81 = {a_15(D), a_15(D), a_15(D), a_15(D), a_15(D), a_15(D), a_15(D), a_15(D)};
+
+  <bb 3> [local count: 454115482]:
+  # vectp_x.9_78 = PHI <vectp_x.9_79(6), x_14(D)(15)>
+  # vectp_y.13_83 = PHI <vectp_y.13_84(6), y_16(D)(15)>
+  # vectp_res.17_87 = PHI <vectp_res.17_88(6), res_17(D)(15)>
+  # ivtmp_90 = PHI <ivtmp_91(6), 0(15)>
+  vect__4.11_80 = MEM <vector(8) int> [(int *)vectp_x.9_78];
+  vect__5.12_82 = vect__4.11_80 * vect_cst__81;
+  vect__7.15_85 = MEM <vector(8) int> [(int *)vectp_y.13_83];
+  vect__9.16_86 = vect__5.12_82 + vect__7.15_85;
+  MEM <vector(8) int> [(int *)vectp_res.17_87] = vect__9.16_86;
+  vectp_x.9_79 = vectp_x.9_78 + 32;
+  vectp_y.13_84 = vectp_y.13_83 + 32;
+  vectp_res.17_88 = vectp_res.17_87 + 32;
+  ivtmp_91 = ivtmp_90 + 1;
+  if (ivtmp_91 < bnd.6_72)
+    goto <bb 6>; [83.33%]
+  else
+    goto <bb 17>; [16.67%]
+
+  <bb 6> [local count: 378429568]:
+  goto <bb 3>; [100.00%]
+
+  <bb 17> [local count: 75685914]:
+  niters_vector_mult_vf.7_73 = bnd.6_72 << 3;
+  _77 = niters_vector_mult_vf.7_73;
+  tmp.8_74 = (int) niters_vector_mult_vf.7_73;
+  if (niters.5_53 == niters_vector_mult_vf.7_73)
+    goto <bb 21>; [12.50%]
+  else
+    goto <bb 20>; [87.50%]
+
+  <bb 20> [local count: 74634721]:
+  # i_70 = PHI <tmp.8_74(17), 0(12)>
+  # _76 = PHI <_77(17), 0(12)>
+  _94 = (unsigned int) size_13(D);
+  niters.19_93 = _94 - _76;
+  _109 = (unsigned int) size_13(D);
+  _110 = _109 - _76;
+  _111 = _110 + 4294967295;
+  if (_111 <= 2)
+    goto <bb 29>; [10.00%]
+  else
+    goto <bb 24>; [90.00%]
+
+  <bb 24> [local count: 67171249]:
+  bnd.20_114 = niters.19_93 >> 2;
+  _120 = (sizetype) _76;
+  _121 = _120 * 4;
+  vectp_x.24_119 = x_14(D) + _121;
+  vect_cst__125 = {a_15(D), a_15(D), a_15(D), a_15(D)};
+  _128 = (sizetype) _76;
+  _129 = _128 * 4;
+  vectp_y.28_127 = y_16(D) + _129;
+  _135 = (sizetype) _76;
+  _136 = _135 * 4;
+  vectp_res.32_134 = res_17(D) + _136;
+
+  <bb 18> [local count: 134342497]:
+  # vectp_x.23_122 = PHI <vectp_x.23_123(19), vectp_x.24_119(24)>
+  # vectp_y.27_130 = PHI <vectp_y.27_131(19), vectp_y.28_127(24)>
+  # vectp_res.31_137 = PHI <vectp_res.31_138(19), vectp_res.32_134(24)>
+  # ivtmp_140 = PHI <ivtmp_141(19), 0(24)>
+  vect__59.25_124 = MEM <vector(4) int> [(int *)vectp_x.23_122];
+  vect__60.26_126 = vect__59.25_124 * vect_cst__125;
+  vect__62.29_132 = MEM <vector(4) int> [(int *)vectp_y.27_130];
+  vect__64.30_133 = vect__60.26_126 + vect__62.29_132;
+  MEM <vector(4) int> [(int *)vectp_res.31_137] = vect__64.30_133;
+  vectp_x.23_123 = vectp_x.23_122 + 16;
+  vectp_y.27_131 = vectp_y.27_130 + 16;
+  vectp_res.31_138 = vectp_res.31_137 + 16;
+  ivtmp_141 = ivtmp_140 + 1;
+  if (ivtmp_141 < bnd.20_114)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 26>; [50.00%]
+
+  <bb 19> [local count: 67171249]:
+  goto <bb 18>; [100.00%]
+
+  <bb 26> [local count: 67171249]:
+  niters_vector_mult_vf.21_115 = bnd.20_114 << 2;
+  _117 = (int) niters_vector_mult_vf.21_115;
+  tmp.22_116 = i_70 + _117;
+  if (niters.19_93 == niters_vector_mult_vf.21_115)
+    goto <bb 30>; [25.00%]
+  else
+    goto <bb 29>; [75.00%]
+
+  <bb 29> [local count: 57841909]:
+  # i_112 = PHI <tmp.22_116(26), i_70(20)>
+
+  <bb 27> [local count: 525835534]:
+  # i_95 = PHI <i_107(28), i_112(29)>
+  _97 = (long unsigned int) i_95;
+  _98 = _97 * 4;
+  _99 = x_14(D) + _98;
+  _100 = *_99;
+  _101 = _100 * a_15(D);
+  _102 = y_16(D) + _98;
+  _103 = *_102;
+  _104 = res_17(D) + _98;
+  _105 = _101 + _103;
+  *_104 = _105;
+  i_107 = i_95 + 1;
+  if (size_13(D) > i_107)
+    goto <bb 28>; [89.00%]
+  else
+    goto <bb 30>; [11.00%]
+
+  <bb 28> [local count: 467993627]:
+  goto <bb 27>; [100.00%]
+
+  <bb 13> [local count: 21023864]:
+
+  <bb 9> [local count: 191126041]:
+  # i_39 = PHI <i_51(10), 0(13)>
+  _41 = (long unsigned int) i_39;
+  _42 = _41 * 4;
+  _43 = x_14(D) + _42;
+  _44 = *_43;
+  _45 = _44 * a_15(D);
+  _46 = y_16(D) + _42;
+  _47 = *_46;
+  _48 = res_17(D) + _42;
+  _49 = _45 + _47;
+  *_48 = _49;
+  i_51 = i_39 + 1;
+  if (size_13(D) > i_51)
+    goto <bb 10>; [89.00%]
+  else
+    goto <bb 8>; [11.00%]
+
+  <bb 10> [local count: 170102176]:
+  goto <bb 9>; [100.00%]
+
+  <bb 30> [local count: 74634721]:
+
+  <bb 21> [local count: 84095460]:
+
+  <bb 8> [local count: 105119324]:
+
+  <bb 4> [local count: 118111600]:
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=23, decl_uid=3431, cgraph_uid=24, symbol_order=23) (executed once)
+
+main (int argc, char * * argv)
+{
+  vector(4) int * vectp_y.91;
+  vector(4) int * vectp_y.90;
+  vector(4) int * vectp_x.89;
+  vector(4) int * vectp_x.88;
+  vector(4) int vect__114.87;
+  vector(4) int vect_vec_iv_.86;
+  vector(8) int * vectp_y.85;
+  vector(8) int * vectp_y.84;
+  vector(8) int * vectp_x.83;
+  vector(8) int * vectp_x.82;
+  vector(8) int vect__4.81;
+  vector(8) int vect_vec_iv_.80;
+  unsigned int tmp.79;
+  int tmp.78;
+  vector(4) int * vectp_res.77;
+  vector(4) int * vectp_res.76;
+  vector(4) int vect__68.75;
+  vector(4) int vect__30.74;
+  vector(4) int * vectp_y.73;
+  vector(4) int * vectp_y.72;
+  vector(4) int vect__44.71;
+  vector(4) int vect__46.70;
+  vector(4) int * vectp_x.69;
+  vector(4) int * vectp_x.68;
+  vector(8) int * vectp_res.67;
+  vector(8) int * vectp_res.66;
+  vector(8) int vect__39.65;
+  vector(8) int vect__37.64;
+  vector(8) int * vectp_y.63;
+  vector(8) int * vectp_y.62;
+  vector(8) int vect__35.61;
+  vector(8) int vect__34.60;
+  vector(8) int * vectp_x.59;
+  vector(8) int * vectp_x.58;
+  unsigned int tmp.57;
+  int tmp.56;
+  int i;
+  int * y;
+  int * x;
+  int * res;
+  int i;
+  long unsigned int _6;
+  long unsigned int _7;
+  int * _8;
+  int _9;
+  int _10;
+  int _11;
+  int _14;
+  vector(8) int vect_cst__43;
+  unsigned int ivtmp_51;
+  int _62;
+  unsigned int ivtmp_77;
+  unsigned int ivtmp_84;
+  unsigned int ivtmp_85;
+  vector(4) int vect_cst__90;
+  unsigned int ivtmp_101;
+  unsigned int ivtmp_102;
+  vector(8) int vect_cst__121;
+  vector(8) int _123;
+  vector(8) int vect_cst__124;
+  unsigned int ivtmp_132;
+  unsigned int ivtmp_133;
+  vector(4) int vect_cst__134;
+  vector(4) int _136;
+  vector(4) int vect_cst__137;
+  unsigned int ivtmp_147;
+  unsigned int ivtmp_148;
+
+  <bb 2> [local count: 10737416]:
+  res_19 = malloc (400);
+  x_21 = malloc (400);
+  y_23 = malloc (400);
+  vect_cst__121 = { 8, 8, 8, 8, 8, 8, 8, 8 };
+  vect_cst__124 = { 50, 50, 50, 50, 50, 50, 50, 50 };
+
+  <bb 3> [local count: 139586405]:
+  # vect_vec_iv_.80_122 = PHI <_123(13), { 0, 1, 2, 3, 4, 5, 6, 7 }(2)>
+  # vectp_x.82_126 = PHI <vectp_x.82_127(13), x_21(2)>
+  # vectp_y.84_129 = PHI <vectp_y.84_130(13), y_23(2)>
+  # ivtmp_132 = PHI <ivtmp_133(13), 0(2)>
+  _123 = vect_vec_iv_.80_122 + vect_cst__121;
+  vect__4.81_125 = vect_vec_iv_.80_122 + vect_cst__124;
+  MEM <vector(8) int> [(int *)vectp_x.82_126] = vect__4.81_125;
+  MEM <vector(8) int> [(int *)vectp_y.84_129] = vect_vec_iv_.80_122;
+  vectp_x.82_127 = vectp_x.82_126 + 32;
+  vectp_y.84_130 = vectp_y.84_129 + 32;
+  ivtmp_133 = ivtmp_132 + 1;
+  if (ivtmp_133 < 12)
+    goto <bb 13>; [92.31%]
+  else
+    goto <bb 25>; [7.69%]
+
+  <bb 13> [local count: 128848989]:
+  goto <bb 3>; [100.00%]
+
+  <bb 25> [local count: 10737416]:
+  vect_cst__134 = { 4, 4, 4, 4 };
+  vect_cst__137 = { 50, 50, 50, 50 };
+  vectp_x.89_139 = x_21 + 384;
+  vectp_y.91_143 = y_23 + 384;
+
+  <bb 26> [local count: 21474835]:
+  # vect_vec_iv_.86_135 = PHI <_136(27), { 96, 97, 98, 99 }(25)>
+  # vectp_x.88_140 = PHI <vectp_x.88_141(27), vectp_x.89_139(25)>
+  # vectp_y.90_144 = PHI <vectp_y.90_145(27), vectp_y.91_143(25)>
+  # ivtmp_147 = PHI <ivtmp_148(27), 0(25)>
+  _136 = vect_vec_iv_.86_135 + vect_cst__134;
+  vect__114.87_138 = vect_vec_iv_.86_135 + vect_cst__137;
+  MEM <vector(4) int> [(int *)vectp_x.88_140] = vect__114.87_138;
+  MEM <vector(4) int> [(int *)vectp_y.90_144] = vect_vec_iv_.86_135;
+  vectp_x.88_141 = vectp_x.88_140 + 16;
+  vectp_y.90_145 = vectp_y.90_144 + 16;
+  ivtmp_148 = ivtmp_147 + 1;
+  if (ivtmp_148 < 1)
+    goto <bb 27>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 27> [local count: 10737417]:
+  goto <bb 26>; [100.00%]
+
+  <bb 11> [local count: 10737413]:
+  vect_cst__43 = { 2, 2, 2, 2, 2, 2, 2, 2 };
+
+  <bb 4> [local count: 64424478]:
+  # vectp_x.58_65 = PHI <vectp_x.58_61(12), x_21(11)>
+  # vectp_y.62_59 = PHI <vectp_y.62_58(12), y_23(11)>
+  # vectp_res.66_81 = PHI <vectp_res.66_82(12), res_19(11)>
+  # ivtmp_84 = PHI <ivtmp_85(12), 0(11)>
+  vect__34.60_45 = MEM <vector(8) int> [(int *)vectp_x.58_65];
+  vect__35.61_60 = vect__34.60_45 * vect_cst__43;
+  vect__37.64_79 = MEM <vector(8) int> [(int *)vectp_y.62_59];
+  vect__39.65_80 = vect__35.61_60 + vect__37.64_79;
+  MEM <vector(8) int> [(int *)vectp_res.66_81] = vect__39.65_80;
+  vectp_x.58_61 = vectp_x.58_65 + 32;
+  vectp_y.62_58 = vectp_y.62_59 + 32;
+  vectp_res.66_82 = vectp_res.66_81 + 32;
+  ivtmp_85 = ivtmp_84 + 1;
+  if (ivtmp_85 < 12)
+    goto <bb 12>; [83.33%]
+  else
+    goto <bb 19>; [16.67%]
+
+  <bb 12> [local count: 53687065]:
+  goto <bb 4>; [100.00%]
+
+  <bb 19> [local count: 10737413]:
+  vectp_x.69_86 = x_21 + 384;
+  vect_cst__90 = { 2, 2, 2, 2 };
+  vectp_y.73_92 = y_23 + 384;
+  vectp_res.77_97 = res_19 + 384;
+
+  <bb 20> [local count: 21474826]:
+  # vectp_x.68_87 = PHI <vectp_x.68_88(21), vectp_x.69_86(19)>
+  # vectp_y.72_93 = PHI <vectp_y.72_94(21), vectp_y.73_92(19)>
+  # vectp_res.76_98 = PHI <vectp_res.76_99(21), vectp_res.77_97(19)>
+  # ivtmp_101 = PHI <ivtmp_102(21), 0(19)>
+  vect__46.70_89 = MEM <vector(4) int> [(int *)vectp_x.68_87];
+  vect__44.71_91 = vect__46.70_89 * vect_cst__90;
+  vect__30.74_95 = MEM <vector(4) int> [(int *)vectp_y.72_93];
+  vect__68.75_96 = vect__44.71_91 + vect__30.74_95;
+  MEM <vector(4) int> [(int *)vectp_res.76_98] = vect__68.75_96;
+  vectp_x.68_88 = vectp_x.68_87 + 16;
+  vectp_y.72_94 = vectp_y.72_93 + 16;
+  vectp_res.76_99 = vectp_res.76_98 + 16;
+  ivtmp_102 = ivtmp_101 + 1;
+  if (ivtmp_102 < 1)
+    goto <bb 21>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 21> [local count: 10737413]:
+  goto <bb 20>; [100.00%]
+
+  <bb 5> [local count: 1052266993]:
+  # _62 = PHI <1(10), _10(17)>
+  # ivtmp_51 = PHI <99(10), ivtmp_77(17)>
+  _6 = (long unsigned int) _62;
+  _7 = _6 * 4;
+  _8 = res_19 + _7;
+  _9 = *_8;
+  printf ("res[%d] = %d ; ", _62, _9);
+  _10 = _62 + 1;
+  _11 = _10 % 10;
+  if (_11 == 0)
+    goto <bb 6>; [33.34%]
+  else
+    goto <bb 7>; [66.66%]
+
+  <bb 6> [local count: 350791453]:
+  __builtin_putchar (10);
+
+  <bb 7> [local count: 1052266993]:
+  ivtmp_77 = ivtmp_51 + 4294967295;
+  if (ivtmp_77 != 0)
+    goto <bb 17>; [98.99%]
+  else
+    goto <bb 9>; [1.01%]
+
+  <bb 17> [local count: 1041638038]:
+  goto <bb 5>; [100.00%]
+
+  <bb 9> [local count: 10737416]:
+  return 1;
+
+  <bb 10> [local count: 10737416]:
+  _14 = *res_19;
+  printf ("res[%d] = %d ; ", 0, _14);
+  goto <bb 5>; [100.00%]
+
+}
+
+

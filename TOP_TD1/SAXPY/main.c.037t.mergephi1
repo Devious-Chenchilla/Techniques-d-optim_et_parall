@@ -1,0 +1,151 @@
+
+;; Function saxpy (saxpy, funcdef_no=22, decl_uid=3423, cgraph_uid=23, symbol_order=22)
+
+saxpy (int * res, int * x, int * y, int a, int size)
+{
+  int i;
+  long unsigned int _1;
+  long unsigned int _2;
+  int * _3;
+  int _4;
+  int _5;
+  int * _8;
+  int _9;
+  int * _12;
+  int _13;
+
+  <bb 2> :
+  goto <bb 4>; [INV]
+
+  <bb 3> :
+  _1 = (long unsigned int) i_14;
+  _2 = _1 * 4;
+  _3 = x_19(D) + _2;
+  _4 = *_3;
+  _5 = _4 * a_20(D);
+  _8 = y_21(D) + _2;
+  _9 = *_8;
+  _12 = res_22(D) + _2;
+  _13 = _5 + _9;
+  *_12 = _13;
+  i_24 = i_14 + 1;
+
+  <bb 4> :
+  # i_14 = PHI <0(2), i_24(3)>
+  if (i_14 < size_18(D))
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 5> :
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=23, decl_uid=3431, cgraph_uid=24, symbol_order=23)
+
+Removing basic block 9
+main (int argc, char * * argv)
+{
+  int i;
+  int a;
+  int * y;
+  int * x;
+  int * res;
+  int size;
+  int i;
+  long unsigned int _7;
+  long unsigned int _8;
+  int * _9;
+  int _10;
+  int * _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  int * _16;
+  int _17;
+  int _18;
+  int _19;
+  long unsigned int _45;
+  long unsigned int _46;
+  int * _47;
+  int _48;
+  int _49;
+  int * _50;
+  int _51;
+  int * _52;
+  int _53;
+
+  <bb 2> :
+  res_29 = malloc (400);
+  x_31 = malloc (400);
+  y_33 = malloc (400);
+  goto <bb 4>; [INV]
+
+  <bb 3> :
+  _7 = (long unsigned int) i_20;
+  _8 = _7 * 4;
+  _9 = x_31 + _8;
+  _10 = i_20 + 50;
+  *_9 = _10;
+  _13 = y_33 + _8;
+  *_13 = i_20;
+  i_43 = i_20 + 1;
+
+  <bb 4> :
+  # i_20 = PHI <0(2), i_43(3)>
+  if (i_20 != 100)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 5> :
+  _45 = (long unsigned int) i_44;
+  _46 = _45 * 4;
+  _47 = x_31 + _46;
+  _48 = *_47;
+  _49 = _48 * 2;
+  _50 = y_33 + _46;
+  _51 = *_50;
+  _52 = res_29 + _46;
+  _53 = _49 + _51;
+  *_52 = _53;
+  i_54 = i_44 + 1;
+
+  <bb 6> :
+  # i_44 = PHI <i_54(5), 0(4)>
+  if (i_44 != 100)
+    goto <bb 5>; [89.00%]
+  else
+    goto <bb 10>; [11.00%]
+
+  <bb 7> :
+  _14 = (long unsigned int) i_21;
+  _15 = _14 * 4;
+  _16 = res_29 + _15;
+  _17 = *_16;
+  printf ("res[%d] = %d ; ", i_21, _17);
+  _18 = i_21 + 1;
+  _19 = _18 % 10;
+  if (_19 == 0)
+    goto <bb 8>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 8> :
+  __builtin_putchar (10);
+
+  <bb 10> :
+  # i_21 = PHI <_18(8), 0(6), _18(7)>
+  if (i_21 != 100)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 11> :
+  return 1;
+
+}
+
+

@@ -1,0 +1,316 @@
+
+;; Function saxpy (saxpy, funcdef_no=22, decl_uid=3423, cgraph_uid=23, symbol_order=22)
+
+;; 2 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 4 5
+;;
+;; Loop 1
+;;  header 4, latch 3
+;;  depth 1, outer 0
+;;  nodes: 4 3
+;; 2 succs { 4 }
+;; 3 succs { 4 }
+;; 4 succs { 3 5 }
+;; 5 succs { 1 }
+
+SSA replacement table
+N_i -> { O_1 ... O_j } means that N_i replaces O_1, ..., O_j
+
+i_20 -> { i_10 }
+Incremental SSA update started at block: 4
+Number of blocks in CFG: 6
+Number of blocks to update: 2 ( 33%)
+
+
+
+Value ranges after VRP:
+
+_1: long unsigned int [0, 2147483647]
+_2: long unsigned int [0, 8589934588]
+_3: int * VARYING
+_4: int VARYING
+_5: int VARYING
+_6: int * VARYING
+_7: int VARYING
+_8: int * VARYING
+_9: int VARYING
+i_10: int [0, +INF]
+.MEM_11: <<< error >>> VARYING
+size_13(D): int VARYING
+x_14(D): int * VARYING
+a_15(D): int VARYING
+y_16(D): int * VARYING
+res_17(D): int * VARYING
+i_19: int [1, +INF]
+i_20: int [-INF, size_13(D) + -1]  EQUIVALENCES: { i_10 } (1 elements)
+
+
+saxpy (int * res, int * x, int * y, int a, int size)
+{
+  int i;
+  long unsigned int _1;
+  long unsigned int _2;
+  int * _3;
+  int _4;
+  int _5;
+  int * _6;
+  int _7;
+  int * _8;
+  int _9;
+
+  <bb 2> [local count: 118111600]:
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [local count: 955630225]:
+  _1 = (long unsigned int) i_10;
+  _2 = _1 * 4;
+  _3 = x_14(D) + _2;
+  _4 = *_3;
+  _5 = _4 * a_15(D);
+  _6 = y_16(D) + _2;
+  _7 = *_6;
+  _8 = res_17(D) + _2;
+  _9 = _5 + _7;
+  *_8 = _9;
+  i_19 = i_10 + 1;
+
+  <bb 4> [local count: 1073741824]:
+  # i_10 = PHI <0(2), i_19(3)>
+  if (i_10 < size_13(D))
+    goto <bb 3>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=23, decl_uid=3431, cgraph_uid=24, symbol_order=23) (executed once)
+
+;; 4 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 4 14 5 6 13 7 8 10 12 11
+;;
+;; Loop 2
+;;  header 12, latch 10
+;;  depth 1, outer 0
+;;  nodes: 12 10 7 8
+;;
+;; Loop 3
+;;  header 6, latch 5
+;;  depth 1, outer 0
+;;  nodes: 6 5
+;;
+;; Loop 1
+;;  header 4, latch 3
+;;  depth 1, outer 0
+;;  nodes: 4 3
+;; 2 succs { 4 }
+;; 3 succs { 4 }
+;; 4 succs { 3 14 }
+;; 14 succs { 6 }
+;; 5 succs { 6 }
+;; 6 succs { 5 13 }
+;; 13 succs { 12 }
+;; 7 succs { 8 10 }
+;; 8 succs { 10 }
+;; 10 succs { 12 }
+;; 12 succs { 7 11 }
+;; 11 succs { 1 }
+
+SSA replacement table
+N_i -> { O_1 ... O_j } means that N_i replaces O_1, ..., O_j
+
+i_43 -> { i_12 }
+i_44 -> { i_13 }
+i_45 -> { i_30 }
+Incremental SSA update started at block: 4
+Number of blocks in CFG: 15
+Number of blocks to update: 6 ( 40%)
+
+
+
+Value ranges after VRP:
+
+_1: long unsigned int [0, 99]
+_2: long unsigned int [0, 396]
+_3: int * VARYING
+_4: int [50, 149]
+_5: int * VARYING
+_6: long unsigned int [0, 99]
+_7: long unsigned int [0, 396]
+_8: int * VARYING
+_9: int VARYING
+_10: int [1, 100]
+_11: int [0, 9]
+i_12: int [0, 100]
+i_13: int [0, 100]
+.MEM_14: <<< error >>> VARYING
+.MEM_15: <<< error >>> VARYING
+.MEM_16: <<< error >>> VARYING
+res_19: void * VARYING
+x_21: void * VARYING
+y_23: void * VARYING
+i_26: int [1, 100]
+i_29: int [1, 100]
+i_30: int [0, 100]
+_31: long unsigned int [0, 99]
+_32: long unsigned int [0, 396]
+_33: int * VARYING
+_34: int VARYING
+_35: int VARYING
+_36: int * VARYING
+_37: int VARYING
+_38: int * VARYING
+_39: int VARYING
+i_40: int [1, 100]
+.MEM_41: <<< error >>> VARYING
+i_43: int [0, 99]  EQUIVALENCES: { i_12 } (1 elements)
+i_44: int [0, 99]  EQUIVALENCES: { i_13 } (1 elements)
+i_45: int [0, 99]  EQUIVALENCES: { i_30 } (1 elements)
+
+
+
+SSA replacement table
+N_i -> { O_1 ... O_j } means that N_i replaces O_1, ..., O_j
+
+i_46 -> { i_13 }
+.MEM_47 -> { .MEM_16 }
+i_48 -> { i_30 }
+.MEM_49 -> { .MEM_41 }
+i_50 -> { i_12 }
+.MEM_51 -> { .MEM_14 }
+i_52 -> { i_12 }
+i_53 -> { i_13 }
+.MEM_54 -> { .MEM_14 }
+.MEM_55 -> { .MEM_16 }
+i_56 -> { i_30 }
+.MEM_57 -> { .MEM_41 }
+Incremental SSA update started at block: 19
+Number of blocks in CFG: 21
+Number of blocks to update: 15 ( 71%)
+
+
+Merging blocks 2 and 19
+Removing basic block 3
+Removing basic block 5
+Removing basic block 7
+Merging blocks 10 and 12
+Removing basic block 13
+Removing basic block 14
+Merging blocks 18 and 6
+Merging blocks 20 and 4
+main (int argc, char * * argv)
+{
+  int i;
+  int * y;
+  int * x;
+  int * res;
+  int i;
+  long unsigned int _1;
+  long unsigned int _2;
+  int * _3;
+  int _4;
+  int * _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  int * _8;
+  int _9;
+  int _10;
+  int _11;
+  long unsigned int _31;
+  long unsigned int _32;
+  int * _33;
+  int _34;
+  int _35;
+  int * _36;
+  int _37;
+  int * _38;
+  int _39;
+
+  <bb 2> [local count: 10737416]:
+  res_19 = malloc (400);
+  x_21 = malloc (400);
+  y_23 = malloc (400);
+
+  <bb 3> [local count: 1063004409]:
+  # i_52 = PHI <i_29(3), 0(2)>
+  _1 = (long unsigned int) i_52;
+  _2 = _1 * 4;
+  _3 = x_21 + _2;
+  _4 = i_52 + 50;
+  *_3 = _4;
+  _5 = y_23 + _2;
+  *_5 = i_52;
+  i_29 = i_52 + 1;
+  if (i_29 != 100)
+    goto <bb 3>; [98.99%]
+  else
+    goto <bb 10>; [1.01%]
+
+  <bb 4> [local count: 86875457]:
+  # i_56 = PHI <i_40(4), i_48(10)>
+  _31 = (long unsigned int) i_56;
+  _32 = _31 * 4;
+  _33 = x_21 + _32;
+  _34 = *_33;
+  _35 = _34 * 2;
+  _36 = y_23 + _32;
+  _37 = *_36;
+  _38 = res_19 + _32;
+  _39 = _35 + _37;
+  *_38 = _39;
+  i_40 = i_56 + 1;
+  if (i_40 != 100)
+    goto <bb 4>; [87.64%]
+  else
+    goto <bb 9>; [12.36%]
+
+  <bb 5> [local count: 1063004409]:
+  # i_53 = PHI <i_26(7), i_46(9)>
+  _6 = (long unsigned int) i_53;
+  _7 = _6 * 4;
+  _8 = res_19 + _7;
+  _9 = *_8;
+  printf ("res[%d] = %d ; ", i_53, _9);
+  _10 = i_53 + 1;
+  _11 = _10 % 10;
+  if (_11 == 0)
+    goto <bb 6>; [33.00%]
+  else
+    goto <bb 7>; [67.00%]
+
+  <bb 6> [local count: 350791453]:
+  __builtin_putchar (10);
+
+  <bb 7> [local count: 1063004409]:
+  # i_26 = PHI <_10(5), _10(6)>
+  if (i_26 != 100)
+    goto <bb 5>; [98.99%]
+  else
+    goto <bb 8>; [1.01%]
+
+  <bb 8> [local count: 10737416]:
+  return 1;
+
+  <bb 9> [local count: 10737416]:
+  # i_46 = PHI <0(4)>
+  goto <bb 5>; [100.00%]
+
+  <bb 10> [local count: 10737416]:
+  # i_48 = PHI <0(3)>
+  goto <bb 4>; [100.00%]
+
+}
+
+

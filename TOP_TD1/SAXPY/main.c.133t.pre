@@ -1,0 +1,459 @@
+
+;; Function saxpy (saxpy, funcdef_no=22, decl_uid=3423, cgraph_uid=23, symbol_order=22)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+res = &NONLOCAL
+x = &NONLOCAL
+y = &NONLOCAL
+a = &NONLOCAL
+size = &NONLOCAL
+i_22 = &NULL
+i_22 = i_19
+_1 = i_22
+_2 = _1 + UNKNOWN
+_2 = &NONLOCAL
+_3 = x + UNKNOWN
+_4 = *_3
+_5 = _4 + UNKNOWN
+_5 = a + UNKNOWN
+_6 = y + UNKNOWN
+_7 = *_6
+_8 = res + UNKNOWN
+_9 = _5 + UNKNOWN
+_9 = _7 + UNKNOWN
+*_8 = _9
+i_19 = i_22 + UNKNOWN
+i_19 = &NONLOCAL
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+res = { NONLOCAL }
+x = { NONLOCAL } same as res
+y = { NONLOCAL } same as res
+a = { NONLOCAL } same as res
+size = { NONLOCAL } same as res
+i_22 = { NULL NONLOCAL }
+i_19 = { NULL NONLOCAL }
+_1 = { NULL NONLOCAL } same as i_22
+_2 = { NULL NONLOCAL }
+_3 = { NONLOCAL }
+_4 = { ESCAPED NONLOCAL }
+_5 = { ESCAPED NONLOCAL }
+_6 = { NONLOCAL }
+_7 = { ESCAPED NONLOCAL }
+_8 = { NONLOCAL }
+_9 = { ESCAPED NONLOCAL }
+
+
+Alias information for saxpy
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { }
+
+Flow-insensitive points-to information
+
+_3, points-to non-local, points-to NULL, points-to vars: { }
+_6, points-to non-local, points-to NULL, points-to vars: { }
+_8, points-to non-local, points-to NULL, points-to vars: { }
+x_14(D), points-to non-local, points-to NULL, points-to vars: { }
+y_16(D), points-to non-local, points-to NULL, points-to vars: { }
+res_17(D), points-to non-local, points-to NULL, points-to vars: { }
+
+;; 2 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 5 3 6 4
+;;
+;; Loop 1
+;;  header 3, latch 6
+;;  depth 1, outer 0
+;;  nodes: 3 6
+;; 2 succs { 5 4 }
+;; 5 succs { 3 }
+;; 3 succs { 6 4 }
+;; 6 succs { 3 }
+;; 4 succs { 1 }
+find_duplicates: <bb 7> duplicate of <bb 8>
+Removing basic block 8
+
+Symbols to be put in SSA form
+{ D.3450 }
+Incremental SSA update started at block: 0
+Number of blocks in CFG: 9
+Number of blocks to update: 7 ( 78%)
+
+
+saxpy (int * res, int * x, int * y, int a, int size)
+{
+  int i;
+  long unsigned int _1;
+  long unsigned int _2;
+  int * _3;
+  int _4;
+  int _5;
+  int * _6;
+  int _7;
+  int * _8;
+  int _9;
+
+  <bb 2> [local count: 118111600]:
+  if (size_13(D) > 0)
+    goto <bb 5>; [89.00%]
+  else
+    goto <bb 7>; [11.00%]
+
+  <bb 5> [local count: 105119324]:
+
+  <bb 3> [local count: 955630225]:
+  # i_22 = PHI <0(5), i_19(6)>
+  _1 = (long unsigned int) i_22;
+  _2 = _1 * 4;
+  _3 = x_14(D) + _2;
+  _4 = *_3;
+  _5 = _4 * a_15(D);
+  _6 = y_16(D) + _2;
+  _7 = *_6;
+  _8 = res_17(D) + _2;
+  _9 = _5 + _7;
+  *_8 = _9;
+  i_19 = i_22 + 1;
+  if (size_13(D) > i_19)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 7>; [11.00%]
+
+  <bb 6> [local count: 850510901]:
+  goto <bb 3>; [100.00%]
+
+  <bb 7> [local count: 118111600]:
+
+  <bb 4> [local count: 118111600]:
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=23, decl_uid=3431, cgraph_uid=24, symbol_order=23) (executed once)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+argc = &NONLOCAL
+argv = &NONLOCAL
+ESCAPED = &NONLOCAL
+res_19 = &HEAP(12)
+ESCAPED = &NONLOCAL
+x_21 = &HEAP(14)
+ESCAPED = &NONLOCAL
+y_23 = &HEAP(16)
+i_52 = &NULL
+i_52 = i_29
+_1 = i_52
+_2 = _1 + UNKNOWN
+_2 = &NONLOCAL
+_3 = x_21 + UNKNOWN
+_4 = i_52 + UNKNOWN
+_4 = &NONLOCAL
+*_3 = _4
+_5 = y_23 + UNKNOWN
+*_5 = i_52
+i_29 = i_52 + UNKNOWN
+i_29 = &NONLOCAL
+i_56 = &NULL
+i_56 = i_40
+_31 = i_56
+_32 = _31 + UNKNOWN
+_32 = &NONLOCAL
+_33 = x_21 + UNKNOWN
+_34 = *_33
+_35 = _34 + UNKNOWN
+_35 = &NONLOCAL
+_36 = y_23 + UNKNOWN
+_37 = *_36
+_38 = res_19 + UNKNOWN
+_39 = _35 + UNKNOWN
+_39 = _37 + UNKNOWN
+*_38 = _39
+i_40 = i_56 + UNKNOWN
+i_40 = &NONLOCAL
+_6 = _13
+_7 = _6 + UNKNOWN
+_7 = &NONLOCAL
+_8 = res_19 + UNKNOWN
+_9 = *_8
+ESCAPED = &STRING
+ESCAPED = _13
+ESCAPED = _9
+_10 = _13 + UNKNOWN
+_10 = &NONLOCAL
+_11 = _10 + UNKNOWN
+ESCAPED = &NONLOCAL
+_13 = _10
+_13 = &NONLOCAL
+_14 = *res_19
+ESCAPED = &STRING
+ESCAPED = &NULL
+ESCAPED = _14
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { NULL STRING ESCAPED NONLOCAL }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+argc = { NONLOCAL }
+argv = { NONLOCAL } same as argc
+malloc = { }
+HEAP(12) = { NULL NONLOCAL }
+HEAP(14) = { NULL NONLOCAL }
+HEAP(16) = { NULL NONLOCAL }
+printf = { }
+putchar = { }
+main = { }
+res_19 = { HEAP(12) }
+x_21 = { HEAP(14) }
+y_23 = { HEAP(16) }
+i_52 = { NULL NONLOCAL }
+i_29 = { NULL NONLOCAL }
+_1 = { NULL NONLOCAL } same as i_52
+_2 = { NULL NONLOCAL }
+_3 = { HEAP(14) }
+_4 = { NULL NONLOCAL }
+_5 = { HEAP(16) }
+i_56 = { NULL NONLOCAL }
+i_40 = { NULL NONLOCAL }
+_31 = { NULL NONLOCAL } same as i_56
+_32 = { NULL NONLOCAL }
+_33 = { HEAP(14) }
+_34 = { NULL NONLOCAL }
+_35 = { NULL NONLOCAL }
+_36 = { HEAP(16) }
+_37 = { NULL NONLOCAL }
+_38 = { HEAP(12) }
+_39 = { NULL NONLOCAL }
+_6 = { NONLOCAL }
+_13 = { NONLOCAL } same as _6
+_7 = { NONLOCAL }
+_8 = { HEAP(12) }
+_9 = { NULL NONLOCAL }
+_10 = { NONLOCAL } same as _6
+_11 = { NONLOCAL }
+_14 = { NULL NONLOCAL }
+
+
+Alias information for main
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { }
+
+Flow-insensitive points-to information
+
+_3, points-to NULL, points-to vars: { D.3519 }
+_5, points-to NULL, points-to vars: { D.3520 }
+_8, points-to NULL, points-to vars: { D.3518 }
+res_19, points-to NULL, points-to vars: { D.3518 }
+x_21, points-to NULL, points-to vars: { D.3519 }
+y_23, points-to NULL, points-to vars: { D.3520 }
+_33, points-to NULL, points-to vars: { D.3519 }
+_36, points-to NULL, points-to vars: { D.3520 }
+_38, points-to NULL, points-to vars: { D.3518 }
+
+;; 4 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 13 11 4 12 5 6 7 8 9 10
+;;
+;; Loop 2
+;;  header 8, latch 7
+;;  depth 1, outer 0
+;;  nodes: 8 7 5 6
+;;
+;; Loop 3
+;;  header 4, latch 12
+;;  depth 1, outer 0
+;;  nodes: 4 12
+;;
+;; Loop 1
+;;  header 3, latch 13
+;;  depth 1, outer 0
+;;  nodes: 3 13
+;; 2 succs { 3 }
+;; 3 succs { 13 11 }
+;; 13 succs { 3 }
+;; 11 succs { 4 }
+;; 4 succs { 12 10 }
+;; 12 succs { 4 }
+;; 5 succs { 6 7 }
+;; 6 succs { 7 }
+;; 7 succs { 8 }
+;; 8 succs { 5 9 }
+;; 9 succs { 1 }
+;; 10 succs { 8 }
+main (int argc, char * * argv)
+{
+  int i;
+  int * y;
+  int * x;
+  int * res;
+  int i;
+  long unsigned int _1;
+  long unsigned int _2;
+  int * _3;
+  int _4;
+  int * _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  int * _8;
+  int _9;
+  int _10;
+  int _11;
+  int _13;
+  int _14;
+  long unsigned int _31;
+  long unsigned int _32;
+  int * _33;
+  int _34;
+  int _35;
+  int * _36;
+  int _37;
+  int * _38;
+  int _39;
+
+  <bb 2> [local count: 10737416]:
+  res_19 = malloc (400);
+  x_21 = malloc (400);
+  y_23 = malloc (400);
+
+  <bb 3> [local count: 1063004409]:
+  # i_52 = PHI <0(2), i_29(13)>
+  _1 = (long unsigned int) i_52;
+  _2 = _1 * 4;
+  _3 = x_21 + _2;
+  _4 = i_52 + 50;
+  *_3 = _4;
+  _5 = y_23 + _2;
+  *_5 = i_52;
+  i_29 = i_52 + 1;
+  if (i_29 != 100)
+    goto <bb 13>; [98.99%]
+  else
+    goto <bb 11>; [1.01%]
+
+  <bb 13> [local count: 1052266996]:
+  goto <bb 3>; [100.00%]
+
+  <bb 11> [local count: 10737413]:
+
+  <bb 4> [local count: 86875457]:
+  # i_56 = PHI <0(11), i_40(12)>
+  _31 = (long unsigned int) i_56;
+  _32 = _31 * 4;
+  _33 = x_21 + _32;
+  _34 = *_33;
+  _35 = _34 * 2;
+  _36 = y_23 + _32;
+  _37 = *_36;
+  _38 = res_19 + _32;
+  _39 = _35 + _37;
+  *_38 = _39;
+  i_40 = i_56 + 1;
+  if (i_40 != 100)
+    goto <bb 12>; [87.64%]
+  else
+    goto <bb 10>; [12.36%]
+
+  <bb 12> [local count: 76138041]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 1052266993]:
+  _6 = (long unsigned int) _13;
+  _7 = _6 * 4;
+  _8 = res_19 + _7;
+  _9 = *_8;
+  printf ("res[%d] = %d ; ", _13, _9);
+  _10 = _13 + 1;
+  _11 = _10 % 10;
+  if (_11 == 0)
+    goto <bb 6>; [33.34%]
+  else
+    goto <bb 14>; [66.66%]
+
+  <bb 14> [local count: 701475536]:
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 350791453]:
+  __builtin_putchar (10);
+
+  <bb 7> [local count: 1052266989]:
+
+  <bb 8> [local count: 1063004409]:
+  # _13 = PHI <_10(7), 1(10)>
+  if (_13 != 100)
+    goto <bb 5>; [98.99%]
+  else
+    goto <bb 9>; [1.01%]
+
+  <bb 9> [local count: 10737416]:
+  return 1;
+
+  <bb 10> [local count: 10737416]:
+  _14 = *res_19;
+  printf ("res[%d] = %d ; ", 0, _14);
+  goto <bb 8>; [100.00%]
+
+}
+
+
